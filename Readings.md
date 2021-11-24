@@ -4,8 +4,10 @@
 ##### 1. [Deep Continuous Fusion for Multi-Sensor 3DObject Detection](https://arxiv.org/pdf/2012.10992.pdf)
 >3D Object detection.
 
+The author use two ResNet to process Lidar BEV and camera image. All feature maps of the image ResNet will be used to fused togather
+[Network structure](./pictures/3.png)
 
-[network structure](./pictures/3.png)
+[Continuous fusion layer](./pictures/4.png)
 #### Lidar only
 
 #### Camera only
