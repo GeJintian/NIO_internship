@@ -1,0 +1,2 @@
+data_dir lidar_repeat_test_list.txt
+repeat 10

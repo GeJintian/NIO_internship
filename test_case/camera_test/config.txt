@@ -1,0 +1,2 @@
+data_dir camera_test_list.txt
+thresh 0.01
