@@ -70,6 +70,12 @@ Concretely, an image is divided into several patches. For each patch, it is line
 The author detects an object by their top-left corner and bottom-right corner of the bounding box. For an image, a CNN (Hourglass Network in this algorithm) is used to predict two heatmaps, one is for the top-left corner and one is for the bottom-right corner. Also, this network will generate feature vectors and offsets (to slightly adjust corner location) for these two corners. Corner pooling layer is used in prediction of these three outputs. To train this model, the author uses Gaussian Distribution to simulate heatmaps ground truth.<br>
 [Network structure](./pictures/10.png)
 
+##### [End-to-End Object Detection with Transformers](https://arxiv.org/pdf/2005.12872.pdf)
+> 2D object detection, one stage. This is a very simple model and can be implement within 50 lines using pytorch. Also called DETR.
+
+For an image, the author use CNN backbone to extract features, and use a transformer (contains both encoder and decoder) to directly regress bounding box and classification. The whole model is very simple, but its loss is complex. The output of this model is a set of items, each item contains bounding box (coordinate) and classification. To give the most similar bounding box the correct ground truth, the author uses Hungary algorithm to match predictions and ground truth (Notice that HUngary algorithm can only guarantee local optimal solution). When training bounding box, only those predictions which have matched ground truth participate in training. See loss [LOSS](./pictures/14.png)<br>
+[Network structure](./pictures/13.png)
+
 ### Reinforcement Learning
 ##### [DeepDriving: Learning Affordance for Direct Perception in Autonomous Driving](https://openaccess.thecvf.com/content_iccv_2015/papers/Chen_DeepDriving_Learning_Affordance_ICCV_2015_paper.pdf)
 > Behavior decision
@@ -80,6 +86,6 @@ The author detects an object by their top-left corner and bottom-right corner of
 ##### [IoU Loss for 2D/3D Object Detection](https://arxiv.org/pdf/1908.03851.pdf)
 > IOU loss for 2D and 3D object detection. Notice that this paper doesn't provide a method to calculate gradient of 3D IOU.
 
-In this paper, the author proposes GIoU loass function: GIoU = IoU- (Area<sub>C</sub>-U)/(Area<sub>C</sub>), where U is the numerator of 1-IoU. See [GIoU Loss](./pictures/12.png)<br>
+In this paper, the author proposes GIoU loass function: GIoU = IoU- (Area<sub>C</sub>-U)/(Area<sub>C</sub>), where U is the numerator of 1-IoU. See [GIoU Loss](./pictures/12.png).<br>
 From my point of view, the reason why 3D IoU loss is not applied in Deep Learning algorithm is that 3D IoU loss is very hard to differentiate. The overlap of two rotated rectange can be a convex polygon with at most 7 edges. Through we do have some techniques to calculate it, the differential machine of Pytorch or Tensorflow don't have internal function to calculate its gradient. This means that we need to compute its gradient function by ourselves, and I think it is a very hard problem. That's why nobody uses 3D IoU loss in deep learning. Back to this paper, the author omits the part of backward (gradient computation) and says that "we implement the backward operations for all these functions and we will make the source code public in the future." These codes are not published yet.
 
