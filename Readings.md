@@ -76,9 +76,16 @@ The author detects an object by their top-left corner and bottom-right corner of
 For an image, the author use CNN backbone to extract features, and use a transformer (contains both encoder and decoder) to directly regress bounding box and classification. The whole model is very simple, but its loss is complex. The output of this model is a set of items, each item contains bounding box (coordinate) and classification. To give the most similar bounding box the correct ground truth, the author uses Hungary algorithm to match predictions and ground truth (Notice that HUngary algorithm can only guarantee local optimal solution). When training bounding box, only those predictions which have matched ground truth participate in training. See loss [LOSS](./pictures/14.png)<br>
 [Network structure](./pictures/13.png)
 
-### Reinforcement Learning
+### Behavior Decision
 ##### [DeepDriving: Learning Affordance for Direct Perception in Autonomous Driving](https://openaccess.thecvf.com/content_iccv_2015/papers/Chen_DeepDriving_Learning_Affordance_ICCV_2015_paper.pdf)
-> Behavior decision
+> Affordance indicator and behavior decision.
+
+The author proposes a deep learning method to map an image to affordance indicators (like angle, distance from lines or distance from preceding cars). Dataset comes from KITTI and TORCS. Then, the author decides a control system to compute action spaces by considering velocity and distance. The controller logic could be concluded as: 1. CNN outputs affordance indicators; 2. check availability of both lanes; 3. if approaching preceding car: checking lane changing allowable. If yes, lane changing, slowing down otherwise; 4. if normal driving: follow center line. If lane changing: follow obejctive lane center line; 5. Compute steering command and desired_speed; 6. Control acceleration and brake.<br>
+[Network structure](./pictures/15.png)
+
+##### [CoBERL: Contrastive BERT for Reinforcement Learning](https://arxiv.org/pdf/2107.05431.pdf)
+> RL algorithms for games like Atari.
+
 
 [Network structure](./pictures/?.png)
 
