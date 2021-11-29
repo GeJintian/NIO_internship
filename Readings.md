@@ -86,7 +86,7 @@ The author proposes a deep learning method to map an image to affordance indicat
 ##### [CoBERL: Contrastive BERT for Reinforcement Learning](https://arxiv.org/pdf/2107.05431.pdf)
 > RL algorithms for games like Atari.
 
-
+The author wants to improve learning efficiency of reinforcement learning with transformer. It is well know that the dataset for reinforcement learning is often small and highly correlated, while transformer requires a large amount of dataset for training. In this paper, the author 
 [Network structure](./pictures/?.png)
 
 ### Loss and others
