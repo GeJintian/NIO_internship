@@ -1,2 +1,0 @@
-data_dir camera_repeat_test_list.txt
-repeat 10
