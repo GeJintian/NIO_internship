@@ -86,8 +86,15 @@ The author proposes a deep learning method to map an image to affordance indicat
 ##### [CoBERL: Contrastive BERT for Reinforcement Learning](https://arxiv.org/pdf/2107.05431.pdf)
 > RL algorithms for games like Atari.
 
-The author wants to improve learning efficiency of reinforcement learning with transformer. It is well know that the dataset for reinforcement learning is often small and highly correlated, while transformer requires a large amount of dataset for training. In this paper, the author 
-[Network structure](./pictures/?.png)
+The author wants to improve learning efficiency of reinforcement learning with transformer. It is well know that the dataset for reinforcement learning is often small and highly correlated, while transformer requires a large amount of dataset for training. In this paper, the author uses contrastive learning and applies RELIC contrastive losses by adapting it into time domain. To create the data groupings by aligning the input and output of GTrXL Transformer.<br>
+In detail, the input of the contrastive proxy (transformer) and the downstream RL work are related but not identical. Therefore, the author proposes to use a critic for seperation (notice that this critic is learnable). For the whole architecture, a encoder will process raw input, and then produce an output Y. Y will be passed into a transformer and generates X. Then, a gate will combines X and Y to generate input for a single LSTM. This whole network is consider as the loss computation of a RL agent (notice that it is in time domain), so it can be used to replace LSTM in some RL algorithms. For example, for R2D2, its LSTM network can be replaced by this CoBERL. <br>
+[Network structure](./pictures/16.png)
+
+##### [Probabilistic Decision-Making under Uncertainty for Autonomous Driving using Continuous POMDPs](https://www.researchgate.net/publication/267040968_Probabilistic_Decision-Making_under_Uncertainty_for_Autonomous_Driving_using_Continuous_POMDPs)
+> RL algorithm
+
+In this paper, the author models the behavior decision problem in autonomous driving into a continuous POMDP and use a continuous POMDP solver to find an approximate optimal solution. 
+[Network structure](./pictures/17.png)
 
 ### Loss and others
 ##### [IoU Loss for 2D/3D Object Detection](https://arxiv.org/pdf/1908.03851.pdf)
