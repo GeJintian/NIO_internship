@@ -93,7 +93,7 @@ In detail, the input of the contrastive proxy (transformer) and the downstream R
 ##### [Probabilistic Decision-Making under Uncertainty for Autonomous Driving using Continuous POMDPs](https://www.researchgate.net/publication/267040968_Probabilistic_Decision-Making_under_Uncertainty_for_Autonomous_Driving_using_Continuous_POMDPs)
 > RL algorithm
 
-In this paper, the author models the behavior decision problem in autonomous driving into a continuous POMDP and use a continuous POMDP solver to find an approximate optimal solution. 
+In this paper, the author models the behavior decision problem in autonomous driving into a continuous POMDP and use a continuous POMDP solver to find an approximate optimal solution. The author points out that it is difficult to construct state in Autonomuous Driving (hard to find a good and unique representation for state). To solve this problem, the  author wants to use ML skills to produce representations. 
 [Network structure](./pictures/17.png)
 
 ### Loss and others
